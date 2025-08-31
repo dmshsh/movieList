@@ -1,0 +1,71 @@
+###
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+    "email":"hello@gmail.com",
+    "password": "password123",
+    "name": "User"
+}
+###
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+    "email":"hello@gmail.com",
+    "password": "password123"
+}
+###
+POST http://localhost:8080/movies
+Content-Type: application/json
+Authorization: Bearer <token>
+
+{
+    "id": 1,
+    "title": "Spider-man",
+    "avgRating": 8.8,
+    "year": 2002,
+    "genres": ["Action", "Adventure", "Sci-Fi"],
+    "ratingsCount": 2000000
+}
+###
+GET http://localhost:8080/movies
+Authorization: Bearer <token>
+###
+GET http://localhost:8080/movies/1
+###
+PATCH http://localhost:8080/movies/1
+Content-Type: application/json
+Authorization: Bearer <token>
+
+{
+    "avgRating": 8.0
+}
+###
+DELETE http://localhost:8080/movies/1
+Authorization: Bearer <token>
+###
+POST http://localhost:8080/lists
+Content-Type: application/json
+Authorization: Bearer <token>
+
+{   
+    "id":1,
+    "movieId":1,
+    "list":"watchlist",
+    "rating":"5"
+}
+###
+GET http://localhost:8080/lists
+Authorization: Bearer <token>
+###
+PATCH http://localhost:8080/lists/3
+Content-Type: application/json
+Authorization: Bearer <token>
+
+{
+    "rating":"8"
+}
+###
+DELETE http://localhost:8080/lists/1
+Authorization: Bearer <token>
